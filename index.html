@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pokemon API</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="icon" href="img/pakeballlogo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="main-container" class="col">
+        <!-- -----Navbar----- -->
+        <nav id="top-navbar" class="center"><img src="/img/pokemon-23.svg" alt=""></nav>
+        <nav id="bottom-navbar" class="center">
+            <form class="d-flex center">
+                <!-- <input class=" me-3 center" type="search" placeholder="Type the name" aria-label="Search">
+                    <button class="center links-button" type="submit">Find it!</button> -->
+                <a href="https://fontmeme.com/es/fuente-pokemon/"><img
+                        src="https://fontmeme.com/permalink/211110/3f3175f58e75364bc0fc209d44d977ac.png"
+                        alt="fuente-pokemon" border="0"></a>
+            </form>
+        </nav>
+        <!-------End of Navbar------->
+
+        <!-------Main------->
+        <section class="row center align-items-center col-12">
+            <section id="pokedex_container" class="">
+                <div class="poke-header d-flex flex-row">
+                    <div class="col-6 poke-image center row">
+                        <img src="/img/1.png" alt="">
+                    </div>
+                    <div class="poke-description">
+                        <h1 class="center">Pikachu</h1>
+                        <h2 class="center">ID: 25</h2>
+                    </div>
+                    <!-- <p>Abilities</p>
+                        <p>Moves</p>
+                        <p>Stats</p> -->
+                </div>
+                <div class="poke-info ">
+                    <div class="type">
+                        <div class="desc-img">
+                            <h2 class="center"><i class="fas fa-bolt"></i></h2>
+                        </div>
+                        <div class="desc-text">
+                            <h2 class="">Type:</h2>
+                            <h3 class="">Electric</h3>
+                        </div>
+                    </div>
+                    <div class="exp">
+                        <div class="desc-img">
+                            <h2 class="center"><i class="fas fa-lightbulb"></i></h2>
+                        </div>
+                        <div class="desc-text">
+                            <h2 class="">Base Exp.:</h2>
+                            <h3 class="">112</h3>
+                        </div>
+                    </div>
+                    <div class="height center">
+                        <div class="desc-img">
+                            <h2 class="center"><i class="fas fa-ruler-combined"></i></h2>
+                        </div>
+                        <div class="desc-text">
+                            <h2 class="">Height:</h2>
+                            <h3 class="">0.4 meters</h3>
+                        </div>
+                    </div>
+                    <div class="weight center">
+                        <div class="desc-img">
+                            <h2 class="center"><i class="fas fa-weight"></i></h2>
+                        </div>
+                        <div class="desc-text">
+                            <h2 class="">Weight:</h2>
+                            <h3 class="">0.4 kg</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="poke-moreinfo center">
+                    <h2>GET MORE DATA:</h2>
+                </div>
+                <div class="more-info mt-4">
+                    <div class="abilities">
+                        <button class="poke-button"></button>
+                    </div>
+                    <div class="moves">
+                        <button class="poke-button"></button>
+
+                    </div>
+                    <div class="stats">
+                        <button class="poke-button"></button>
+
+                    </div>
+                    <div class="chevron">
+                        <button class="poke-button-chev"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                        <button class="poke-button-chev"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+
+                    </div>
+                </div>
+
+            </section>
+        </section>
+        <!-- <div class="col-2 border-danger border-4">
+            eewfe
+        </div>
+        <div class="col-8 offset-1">
+            Hola
+        </div>
+        <div class="col-2"></div> -->
+        </section>
+        <!-------End of Main------->
+
+        <!-------Footer------->
+        <footer class="col-12">
+            <div class="center row container-fluid" id="info_footer">
+                <div class="social-media center ">
+                    <a href="https://github.com/LuisLopezCol" style="text-decoration: none">
+                        <i class="fab fa-github px-2 links" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/LuisLopez0730" style="text-decoration: none">
+                        <i class="fab fa-twitter px-2 links" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/luislopez0730/" style="text-decoration: none">
+                        <i class="fab fa-instagram px-2 links" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="by-ll center py-2">
+                    &lt &gt by <span class="mx-1 name"> Luis López </span> 2021
+                </div>
+            </div>
+        </footer>
+        <!-------End of Footer------->
+
+        <script src="app.js"></script>
+</body>
+
+</html>
