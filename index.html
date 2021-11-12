@@ -28,13 +28,23 @@
             </form>
         </nav>
         <!-------End of Navbar------->
-
         <!-------Main------->
         <section class="row center align-items-center col-12">
             <section id="pokedex_container" class="">
-                <!-- <div class="poke-header d-flex flex-row"> -->
-                <div class="poke-image center">
-                    <img src="/img/1.png" alt="">
+                <div class="poke-image">
+                    <div id="carousel-pokedex" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/img/1.png" class="d-block w-100 carousel-img" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/img/2.png" class="d-block w-100 carousel-img" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/img/3.png" class="d-block w-100 carousel-img" alt="...">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="poke-name center">Pikachu</div>
                 <div class="poke-id center">ID: 25</div>
@@ -64,11 +74,67 @@
                     <div class="dscrpt-2 center">Weight:</div>
                     <div class="dscrpt-3 center">0.4 Kg</div>
                 </div>
-                <button class="abilities poke-button">A</button>
-                <button class="moves poke-button">M</button>
-                <button class="stats poke-button">S</button>
+                <button type="button" class="abilities poke-button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">A</button>
+                <!-- <button class="moves poke-button">M</button> -->
+                <button type="button" class="moves poke-button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">M</button>
+                <!-- <button class="stats poke-button">S</button> -->
+                <button type="button" class="stats poke-button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">S</button>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    A
+                </button> -->
             </section>
         </section>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fs-4 text-light" id="modal-abilities">ABILITIES</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-light  row">
+                        <!-- <div id="stats_text">
+                            <li>Static - (not hidden)</li>
+                        </div> -->
+                        <div id="moves_text">
+                            <!-- <li>Static - (not hidden)</li> -->
+
+                        </div>
+                        <!-- <div id="stats_text center">
+                            <p class="center">HP <span>123</span></p>
+
+                            <p>ATTACK<span>32</span></p>
+
+                            <p>DEFENSE<span>532</span></p>
+
+                            <p>SUPER ATTACK<span>231</span></p>
+
+                            <p>SUPER DEFENSE<span>41</span></p>
+
+                            <p>SPEED<span>252</span></p>
+                            <h2>GRAND TOTAL</h2>
+                            <h3>34252</h3>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="modalS fade" id="exampleModalS" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fs-4 text-light" id="modal-abilities">ABILITIES</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-light">
+                    </div>
+                </div>
+            </div>
+        </div> -->
         <!-- <div class="col-2 border-danger border-4">
             eewfe
         </div>
@@ -101,6 +167,9 @@
         <!-------End of Footer------->
 
         <script src="app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

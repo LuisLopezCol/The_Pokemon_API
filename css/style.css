@@ -6,9 +6,10 @@
     --main-green: #39ff14;
     --main-white: #fff;
     --poke-blue: #3366ff;
-    --poke-yellow: #ffcc33;
+    --poke-yellow: #fcff33;
     --poke-green: #99ff33;
     --poke-red: #ff3366;
+    --black-shadow: -0.5px -1.2px 0 var(--main-black);
 }
 
 * {
@@ -120,10 +121,15 @@ body {
     box-shadow: 8px 8px 16px #661414, -8px -8px 16px #ff5252;
     grid-row: 1 / 3;
     grid-column: 1 / 3;
+    /* overflow: hidden; */
 }
 
-.poke-image img {
-    width: 100% !important;
+.carousel {
+    top: 20px !important;
+}
+
+.carousel-img {
+    width: fit-content !important;
     height: auto !important;
 }
 
@@ -135,6 +141,7 @@ body {
     text-transform: uppercase;
     color: #fff !important;
     font-weight: 600;
+    text-shadow: var(--black-shadow);
 }
 
 .poke-id {
@@ -143,6 +150,8 @@ body {
     grid-column: 3 / 5;
     font-size: 1em;
     text-transform: uppercase;
+    text-shadow: var(--black-shadow);
+    ;
     color: #fff !important;
     font-weight: 600;
 }
@@ -175,6 +184,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    text-shadow: var(--black-shadow);
 }
 
 .exp {
@@ -183,6 +193,7 @@ body {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    text-shadow: var(--black-shadow);
 }
 
 .height {
@@ -191,6 +202,7 @@ body {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    text-shadow: var(--black-shadow);
 }
 
 .weight {
@@ -199,12 +211,13 @@ body {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    text-shadow: var(--black-shadow);
 }
 
 .dscrpt-1 {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .dscrpt-2 {
@@ -272,9 +285,69 @@ body {
 
 /* -----End of Pokedex---- */
 
-/* -----Navbar---- */
+/* -----Modal---- */
 
-/* -----Navbar---- */
+.modal {
+    width: 300px;
+    height: 450px;
+    min-width: 300px;
+    min-height: 400px;
+}
+
+.modal-content {
+    width: 300px !important;
+    height: fit-content;
+    min-width: 300px !important;
+    padding: 20px!important;
+    border: 5px solid var(--main-white) !important;
+    outline: 5px solid var(--main-black) !important;
+    border-radius: 4% 20% 4% 10% !important;
+    margin: 3%;
+    background: var(--main-red) !important;
+    box-shadow: 6px 6px 12px #52514f;
+    text-shadow: var(--black-shadow);
+}
+
+#exampleModal p {
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    justify-content: right !important;
+    align-items: flex-end;
+    padding: 0;
+    margin: 0;
+}
+
+#exampleModal span {
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center !important;
+    padding: 0;
+    margin: 0;
+}
+
+#exampleModal h2 {
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center !important;
+    color: var(--poke-yellow);
+    padding: 0;
+    margin-top: 15px;
+}
+
+#exampleModal h3 {
+    font-size: 40px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center !important;
+    color: var(--poke-green);
+    padding: 0;
+    margin-top: 5px;
+}
+
+/* -----End of Modal---- */
 
 /* ----Footer----- */
 
