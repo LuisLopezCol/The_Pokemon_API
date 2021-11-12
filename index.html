@@ -18,20 +18,21 @@
     <div id="main-container" class="col">
         <!-- -----Navbar----- -->
         <nav id="top-navbar" class="center"><img src="/img/pokemon-23.svg" alt=""></nav>
-        <nav id="bottom-navbar" class="center">
-            <form class="d-flex center">
-                <!-- <input class=" me-3 center" type="search" placeholder="Type the name" aria-label="Search">
-                    <button class="center links-button" type="submit">Find it!</button> -->
-                <a href="https://fontmeme.com/es/fuente-pokemon/"><img
-                        src="https://fontmeme.com/permalink/211110/3f3175f58e75364bc0fc209d44d977ac.png"
-                        alt="fuente-pokemon" border="0"></a>
-            </form>
-        </nav>
+        <nav id="bottom-navbar" class="center"><img src="/img/bannerheader.png" alt=""></nav>
         <!-------End of Navbar------->
+
+        <!-------Find It------->
+        <div id="find_it" class="center row">
+            <img src="/img/FINDIT.png" class="w-100" alt="">
+            <input type="email" class="find-email center" placeholder="Type the ID">
+            <button class="w-25 center links"><img src="/img/pakeballlogo.png" alt=""></button>
+        </div>
+        <!-------End of Find It------->
+
         <!-------Main------->
-        <section class="row center align-items-center col-12">
-            <section id="pokedex_container" class="">
-                <div class="poke-image">
+        <section id="middle_container" class="row center align-items-center col-12">
+            <section id="pokedex_container">
+                <!-- <div class="poke-image">
                     <div id="carousel-pokedex" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -61,7 +62,7 @@
                 </div>
                 <div class="exp">
                     <div class="dscrpt-1 center"><i class="fas fa-lightbulb"></i></i></div>
-                    <div class="dscrpt-2 center">Base Exp.:</div>
+                    <div class="dscrpt-2 center">Exp.:</div>
                     <div class="dscrpt-3 center">112</div>
                 </div>
                 <div class="height">
@@ -76,15 +77,9 @@
                 </div>
                 <button type="button" class="abilities poke-button" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">A</button>
-                <!-- <button class="moves poke-button">M</button> -->
                 <button type="button" class="moves poke-button" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">M</button>
-                <!-- <button class="stats poke-button">S</button> -->
-                <button type="button" class="stats poke-button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">S</button>
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    A
-                </button> -->
+                <button type="button" class="stats poke-button" data-bs-toggle="modal"></button> -->
             </section>
         </section>
 
@@ -92,19 +87,19 @@
             <div class="modal-dialog center">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title fs-4 text-light" id="modal-abilities">ABILITIES</h5>
+                        <h5 class="modal-title fs-4 text-light" id="modal-abilities"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-light  row">
-                        <!-- <div id="stats_text">
-                            <li>Static - (not hidden)</li>
-                        </div> -->
+                        <div id="abilities_text">
+                            <!-- <li>Static - (not hidden)</li> -->
+                        </div>
                         <div id="moves_text">
                             <!-- <li>Static - (not hidden)</li> -->
 
                         </div>
-                        <!-- <div id="stats_text center">
-                            <p class="center">HP <span>123</span></p>
+                        <div id="stats_text">
+                            <!-- <p class="center">HP <span>123</span></p>
 
                             <p>ATTACK<span>32</span></p>
 
@@ -116,34 +111,43 @@
 
                             <p>SPEED<span>252</span></p>
                             <h2>GRAND TOTAL</h2>
-                            <h3>34252</h3>
-                        </div> -->
+                            <h3>34252</h3> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="modalS fade" id="exampleModalS" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog center">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-4 text-light" id="modal-abilities">ABILITIES</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-light">
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="col-2 border-danger border-4">
-            eewfe
-        </div>
-        <div class="col-8 offset-1">
-            Hola
-        </div>
-        <div class="col-2"></div> -->
-        </section>
         <!-------End of Main------->
+
+        <!-------Poke library------->
+        <section id="poke_library">
+            <div class="ghost center">
+                <img src="/img/1.png" alt="">
+                <div class="lib-title center">2-Charizar</div>
+            </div>
+            <div class="ghost center ">
+                <img src="/img/1.png" alt="">
+                <div class="lib-title center">2-Charizar</div>
+            </div>
+            <div class="ghost center"><img src="/img/3.png" alt="">
+                <div class="lib-title center">2-Charizar</div>
+            </div>
+            <div class="ghost center"><img src="/img/1.png" alt="">
+                <div class="lib-title center">ID:2 - Charizar</div>
+            </div>
+            <div class="ghost center"><img src="/img/2.png" alt="">
+                <div class="lib-title center">2-Charizar</div>
+            </div>
+            <div class="ghost center"><img src="/img/3.png" alt="">
+                <div class="lib-title center">2-Charizar</div>
+            </div>
+
+        </section>
+        <section id="library_buttons" class="">
+            <button class="lib-buttons1">PREVIOUS</button>
+            <button class="lib-buttons2">NEXT</button>
+        </section>
+        <!-------End of Poke library------->
 
         <!-------Footer------->
         <footer class="col-12">
@@ -164,6 +168,9 @@
                 </div>
             </div>
         </footer>
+        <div class="buy-coffe">
+            <button href="https://www.buymeacoffee.com/LuoLopez0730"><img src="/img/buycofee.png" alt=""></button>
+        </div>
         <!-------End of Footer------->
 
         <script src="app.js"></script>
