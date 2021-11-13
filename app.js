@@ -17,7 +17,7 @@ let print_pokedex = (id = 1, busqueda = false) => {
       poke_weight = data_pokemon.weight / 10; //To convert the weight in decimals and show it in kg
       pokedex.innerHTML = ""; // To reset the pokedex
       pokedex.innerHTML = `           
-        <div class="poke-image">
+        <div class="poke-image"  style="background-image: url(img/bckg-img.png);background-size: cover;">
                     <div id="carousel-pokedex" class="carousel slide " data-bs-ride="carousel">
                         <div class="carousel-inner">
                           <div class="carousel-item active" data-interval="1500">
