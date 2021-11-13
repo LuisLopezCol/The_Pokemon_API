@@ -1,81 +1,60 @@
-let pokedex = document.getElementById("pokedex_container");
-let print_pokedex = (id) => {
-  // --------------Print Characters---------------
+// ----------------------------------POKEDEX---------------------------------------
 
-  var url_api = "https://pokeapi.co/api/v2/pokemon/" + id;
+let print_pokedex = (id = 1, busqueda = false) => {
+  let pokedex = document.getElementById("pokedex_container");
+  let input_findit = document.getElementById("find_it_input").value;
+  document.getElementById("find_it_input").value = "";
+
+  if (!busqueda) {
+    var url_api = "https://pokeapi.co/api/v2/pokemon/" + id;
+  } else {
+    var url_api = "https://pokeapi.co/api/v2/pokemon/" + input_findit;
+  }
   let api = fetch(url_api);
   api
     .then((res) => res.json())
     .then((data_pokemon) => {
-      console.log(data_pokemon);
-      //   pokedex.innerHTML = "";
-      //   for (const data_pokemon of data_pokemon.result) {
-      // if (items_pokedex.status == "Alive") {
-      //   alive_color = "greenyellow";
-      // } else if (items_pokedex.status == "Dead") {
-      //   alive_color = "tomato";
-      // } else if (items_pokedex.status == "unknown") {
-      //   alive_color = "grey";
-      // }
+      poke_weight = data_pokemon.weight / 10; //To convert the weight in decimals and show it in kg
+      pokedex.innerHTML = ""; // To reset the pokedex
       pokedex.innerHTML = `           
         <div class="poke-image">
-                    <div id="carousel-pokedex" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carousel-pokedex" class="carousel slide " data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${parseInt(
-                                  data_pokemon.id
-                                )}.png.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/female/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/female/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${
-                                  data_pokemon.id
-                                }.png" class="d-block w-100 carousel-img" alt="...">
-                            </div>
+                          <div class="carousel-item active" data-interval="1500">
+                              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                                data_pokemon.id
+                              }.png" class="d-block w-100 carousel-img" alt="...">
+                          </div>
+                          <div class="carousel-item" data-interval="1500">
+                              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${
+                                data_pokemon.id
+                              }.png" class="d-block w-100 carousel-img" alt="...">
+                          </div>
+                          <div class="carousel-item" data-interval="1500">
+                                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${
+                                    data_pokemon.id
+                                  }.png" class="d-block w-100 carousel-img" alt="...">
+                                  </div>
+                          </div>
                         </div>
                     </div>
                 </div>
                 <div class="poke-name center">${data_pokemon.name}</div>
                 <div class="poke-id center">ID: ${data_pokemon.id}</div>
                 <div class="chevron center">
-                    <button class="poke-button-chev my-1"><i class="fa fa-chevron-left text-dark"
-                            aria-hidden="true"></i></button>
-                    <button class="poke-button-chev my-1"><i class="fa fa-chevron-right text-dark"
-                            aria-hidden="true"></i></button>
+                    <button onclick="print_pokedex(${
+                      data_pokemon.id - 1
+                    })" class="poke-button-chev my-1"><i class="fa fa-chevron-left text-dark"
+                            aria-hidden="true" ></i></button>
+                    <button onclick="print_pokedex(${
+                      data_pokemon.id + 1
+                    })" class="poke-button-chev my-1"><i class="fa fa-chevron-right text-dark"
+                            aria-hidden="true" ></i></button>
                 </div>
                 <div class="type">
-                    <div class="dscrpt-1 center"><i class="fas fa-bolt"></i></div>
+                    <div class="dscrpt-1 center"><i class="fas fa-jedi"></i></i></div>
                     <div class="dscrpt-2 center">Type:</div>
-                    <div class="dscrpt-3 center">${data_pokemon.id}</div>
+                    <div class="dscrpt-3 fs-6" id="poke_type"></div>
                 </div>
                 <div class="exp">
                     <div class="dscrpt-1 center"><i class="fas fa-lightbulb"></i></i></div>
@@ -94,84 +73,186 @@ let print_pokedex = (id) => {
                 <div class="weight">
                     <div class="dscrpt-1 center"><i class="fas fa-weight"></i></i></div>
                     <div class="dscrpt-2 center">Weight:</div>
-                    <div class="dscrpt-3 center">${data_pokemon.weight} Kg</div>
+                    <div class="dscrpt-3 center">${poke_weight} Kg</div>
                 </div>
                 <button type="button" class="abilities poke-button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" onclick="poke_buttons("A")">A</button>
+                    data-bs-target="#exampleModal" onclick="pokebuttons('A')">A</button>
                 <button type="button" class="moves poke-button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" onclick="poke_buttons("M")">M</button>
+                    data-bs-target="#exampleModal" onclick="pokebuttons('M')">M</button>
                 <button type="button" class="stats poke-button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal" onclick="poke_buttons("S")">S</button>
+                    data-bs-target="#exampleModal" onclick="pokebuttons('S')">S</button>
                       `;
-      // }
-      // ---------Footers logos-------
+      //This code is used to list all the types of each pokemonin the pokedex
+      let poke_type = document.getElementById("poke_type");
+      data_pokemon.types.forEach((element) => {
+        poke_type.innerHTML += `
+        <a href="${element.type.url}" style="text-decoration: none;" class="links">
+        <li style="list-style: none;" class="type-text">${element.type.name}</li>
+        </a>
+        `;
+      });
 
-      //       info_footer.innerHTML = `
-      // <div class="me-3">CHARACTERS: ${data_pokemon.info.count}</div>
-      // <div class="me-3">LOCATIONS: 126</div>
-      // <div class="">
-      // EPISODES: 51
-      // </div>
-      // `;
+      // -----------------------------------Modal of the pokedex--------------------------------------
 
-      let pokemodal = document.getElementById("exampleModal");
+      let modal_name = document.getElementById("modal-abilities");
       let modal_abilities = document.getElementById("abilities_text");
       let modal_moves = document.getElementById("moves_text");
-      //   let modal_stats = document.getElementById("stats_text");
-      let modal_name = document.getElementById("modal-abilities");
+      let modal_stats = document.getElementById("stats_text");
 
-      let pokebuttons = (button_type) => {
+      //Code to sum all the stats
+      // data_pokemon.stats.forEach((element) => {
+      //   total += element.base_stat;
+      // });
+      // console.log(total);
+
+      // Since we have three buttons to open the modal, and IF statement was implemented to print what the user requires
+      pokebuttons = (button_type) => {
+        //Cleaning first teh dashboard
+        modal_name.innerText = "";
+        modal_abilities.innerHTML = ``;
+        modal_moves.innerHTML = ``;
+        modal_stats.innerHTML = ``;
+
         if (button_type == "A") {
           modal_name.innerText = `ABILITIES`;
-          ability = data_pokemon.abilities.ability;
+          ability = data_pokemon.abilities;
           ability.forEach((element) => {
             modal_abilities.innerHTML += `
-                <li>${element.name}</li>
+                <a href="${element.ability.url}" style="text-decoration: none;" class="links">
+                <li>${element.ability.name}</li>
+                </a>
                 `;
           });
         } else if (button_type == "M") {
           modal_name.innerText = `MOVES`;
-          move = data_pokemon.moves.move;
+          move = data_pokemon.moves;
           move.forEach((element) => {
             modal_moves.innerHTML += `
-                <li>${element.name}</li>
+                <a href="${element.move.url}" style="text-decoration: none;" class="links">
+                <li>${element.move.name}</li>
+                </a>
                 `;
           });
-          //         } else if ((button_type = "S")) {
+        } else if ((button_type = "S")) {
           modal_name.innerText = "STATS";
-          //           ability = data_pokemon.moves.move;
-          //           modal_stats.innerHTML = `
-          //                           <p class="center">HP <span>123</span></p>
-          //                             <p>ATTACK<span>32</span></p>
-          //                             <p>DEFENSE<span>532</span></p>
-          //                             <p>SUPER ATTACK<span>231</span></p>
-          //                             <p>SUPER DEFENSE<span>41</span></p>
-          //                             <p>SPEED<span>252</span></p>
-          //                             <h2>GRAND TOTAL</h2>
-          //                             <h3>34252</h3>
-          // `;
+          modal_stats.innerHTML = `
+                <a href="${
+                  data_pokemon.stats[0].stat.url
+                }" style="text-decoration: none;" class="links">      
+                <p class="center">HP<span>${
+                  data_pokemon.stats[0].base_stat
+                }</span></p>
+                </a>
+                <a href="${
+                  data_pokemon.stats[1].stat.url
+                }" style="text-decoration: none;" class="links">      
+                <p>ATTACK<span>${data_pokemon.stats[1].base_stat}</span></p>
+                </a>
+                <a href="${
+                  data_pokemon.stats[2].stat.url
+                }" style="text-decoration: none;" class="links">      
+                <p>DEFENSE<span>${data_pokemon.stats[2].base_stat}</span></p>
+                </a>      
+                <a href="${
+                  data_pokemon.stats[3].stat.url
+                }" style="text-decoration: none;" class="links">      
+                <p>SUPER ATTACK<span>${
+                  data_pokemon.stats[3].base_stat
+                }</span></p>
+                </a>      
+                <a href="${
+                  data_pokemon.stats[4].stat.url
+                }" style="text-decoration: none;" class="links">      
+                <p>SUPER DEFENSE<span>${
+                  data_pokemon.stats[4].base_stat
+                }</span></p>
+                </a>      
+                <a href="${
+                  data_pokemon.stats[5].stat.url
+                }" style="text-decoration: none;" class="links">      
+                <p>SPEED<span>${data_pokemon.stats[5].base_stat}</span></p>
+                <h2>GRAND TOTAL</h2>
+                </a>      
+                <h3>${
+                  data_pokemon.stats[0].base_stat +
+                  data_pokemon.stats[1].base_stat +
+                  data_pokemon.stats[2].base_stat +
+                  data_pokemon.stats[3].base_stat +
+                  data_pokemon.stats[4].base_stat +
+                  data_pokemon.stats[5].base_stat
+                }</h3>
+          `;
         } else {
           pokemodal.innerHTML = "";
         }
       };
-      pokebuttons("M");
+      pokebuttons("S");
     })
     .catch((error) => console.log(error));
 };
-print_pokedex(25);
+print_pokedex(1);
 
-// ---------Pages buttons-------
+// -------------------------------------LIBRARY------------------------------------
+let poke_library = (pagina = 1) => {
+  let library = document.getElementById("poke_library");
+  let lib_buttons = document.getElementById("library_buttons");
 
-//       let previous_char = "";
-//       let next_char = "";
+  if (pagina == 1 || pagina == null) {
+    var url_apilib = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=9";
+  } else {
+    var url_apilib = pagina;
+  }
+  library.innerHTML = "";
+  let api = fetch(url_apilib);
+  api
+    .then((res) => res.json())
+    .then((character) => {
+      for (const element of character.results) {
+        //The next code was written in order to get the ID of each pokemon and then with the url+id get the picture, this in order to avoid andother fetch
+        function isNumber(n) {
+          return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+        var data1 = element.url.substring(34, 35);
+        var data2 = element.url.substring(35, 36);
+        var data3 = element.url.substring(36, 37);
+        var data4 = element.url.substring(37, 38);
+        if (!isNumber(data1)) {
+          data1 = "";
+        }
+        if (!isNumber(data2)) {
+          data2 = "";
+        }
+        if (!isNumber(data3)) {
+          data3 = "";
+        }
+        if (!isNumber(data4)) {
+          data4 = "";
+        }
+        var totaldata = data1 + data2 + data3 + data4;
+        library.innerHTML += `
+        <a onclick="print_pokedex(${totaldata})" text links class="ghost center">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(
+          totaldata
+        )}.png" alt="">
+                <div class="lib-title center">${totaldata}-${element.name}</div>
+            </a>
+        `;
+      }
 
-//       if (data_pokemon.info.prev == null) {
-//         previous_char = "disabled";
-//       } else if (data_pokemon.info.next == null) {
-//         next_char = "disabled";
-//       }
-
-//       button_pagesPN.innerHTML = `
-//       <button class="pages link-help  button-prev ${previous_char}" onclick="print_pokedex('${data_pokemon.info.prev}')">PREVIOUS CHARACTERS</button>;
-//       <button class="pages link-help  button-next ${next_char}" onclick="print_pokedex('${data_pokemon.info.next}')">NEXT CHARACTERS</button>;
-//       `;
+      //Code to give funtionality to the buttons
+      let previous_char = "";
+      let next_char = "";
+      if (character.previous == null) {
+        previous_char = "disabled";
+      } else if (character.next == null) {
+        next_char = "disabled";
+      }
+      lib_buttons.innerHTML = `
+            <button class="lib-buttons1" ${previous_char}
+                onclick="poke_library('${character.previous}')">PREVIOUS</button>
+            <button class="lib-buttons2" ${next_char} onclick="poke_library('${character.next}')">NEXT</button>
+        `;
+    })
+    .catch((error) => console.log(error));
+};
+poke_library(1);
