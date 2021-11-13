@@ -24,7 +24,7 @@
 }
 
 body {
-    background: url(/img/bckg.png);
+    background: url(img/bckg.png);
     background-position: bottom right;
     background-size: cover;
     background-repeat: no-repeat;
@@ -145,7 +145,7 @@ body {
 .poke-image {
     outline: 2px var(--main-black) solid;
     border-radius: 2%;
-    background-image: url(/img/bckg-img.png);
+    background-image: url(img/bckg-img.png);
     background-size: cover;
     box-shadow: 8px 8px 16px #661414, -8px -8px 16px #ff5252;
     grid-row: 1 / 3;
