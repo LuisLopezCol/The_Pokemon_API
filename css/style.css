@@ -476,6 +476,9 @@ body {
         grid-column: 2 / 10;
         grid-row: 6 / 13;
     }
+    * {
+        overflow: visible;
+    }
 }
 
 /* -----End of Poke Library---- */
