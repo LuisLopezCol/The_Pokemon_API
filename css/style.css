@@ -465,12 +465,21 @@ body {
 }
 
 @media (max-width: 1200px) {
-    #poke_library, #library_buttons {
+  #poke_library, #library_buttons {
         display: none;
     }
+    #top-navbar img {
+        height: 25px;
+    }
+    #bottom-navbar img {
+        height: 25px !important;
+    }
     #find_it {
-        grid-column: 5 / 7;
+        grid-column: 2 / 10;
         grid-row: 4 / 6;
+    }
+    #find_it button img {
+        height: 40px;
     }
     #middle_container {
         grid-column: 2 / 10;
